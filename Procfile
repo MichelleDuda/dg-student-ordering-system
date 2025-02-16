@@ -1,0 +1,1 @@
+web: gunicorn dg_ordering_project.wsgi

@@ -4,4 +4,4 @@ from django.http import HttpResponse
 # Views
 
 def index(request):
-    return HttpResponse("You did it! Welcome to DG Student Ordering System")
+   return render(request, 'menu/index.html')

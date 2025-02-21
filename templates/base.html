@@ -1,4 +1,5 @@
 {% url 'home' as home_url %}
+{% load static %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -24,9 +25,10 @@
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">DG CATERING</span></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/dg_logo.jpg' %}" alt="DG Catering Logo" height="80">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,11 +40,11 @@
                             href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a 
+                        <a class="nav-link"
                             href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a 
+                        <a class="nav-link"
                             href="#">Register</a>
                     </li>
 
@@ -63,8 +65,8 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3 dark-bg">
-        <p class="m-0 text-center text-white">DG Hospitality Inc.</p>
+    <footer class="footer mt-auto py-3 bg-dark">
+        <p class="m-0 text-center text-white">DG Hospitality</p>
         <p class="m-0 text-center text-white">Follow us: <i class="fab fa-facebook-square ms-3"></i>
             <i class="fab fa-twitter-square ms-3"></i>
             <i class="fab fa-instagram-square ms-3"></i>

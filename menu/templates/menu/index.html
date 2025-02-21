@@ -1,11 +1,51 @@
 {% extends "base.html" %}
+{% load static %}
+
 
 {% block content %}
 
 <!-- index.html content starts here -->
-<div class="container-fluid">
-    This is my homepage
-</div>
+ <!-- Main Content -->
+ <main>
+    <section id="hero">
+        <div id="hero-cover-text">
+            <h2>Nutricious Meals Delivered To Your Dorm</h2>
+            <br>
+            <a href="#">View Menu</a>
+
+        </div>
+    </section>
+
+    <section id="about-us" class="center">
+        <h2>About Us</h2>
+        <p> DG Catering is an off premise caterer, delivering healthy, nutricious, quality meals to students in ABT dorms throughout the school year.
+        </p>
+        <br>
+        <p class="center"> Here at DG Catering we treat your children as if they were our own!
+        </p>
+    </section>
+
+    <section id="selling-points" class="center">
+        <h2 class="hidden-heading">Selling Points</h2>
+        <div>
+            <h3>Farm Fresh </h3>
+            <hr>
+            <p>All our ingredients are locally sourced.</p>
+        </div>
+        <div>
+            <h3>Giving Back</h3>
+            <hr>
+            <p>10% of all proceeds are invested back into the community to support local farmers and small
+                businesses.</p>
+        </div>
+        <div>
+            <h3>Small Batches</h3>
+            <hr>
+            <p>Our small batches are made by hand with a strong attention to quality.</p>
+        </div>
+    </section>
+
+</main>
 
 <!-- index.html content ends here -->
 {% endblock %}

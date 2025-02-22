@@ -6,9 +6,46 @@
 
 <!-- index.html content starts here -->
  <!-- Main Content -->
- <main>
-    About Page
+ <main class="container py-5">
 
+    <!-- First Row: Image on Left, Text on Right -->
+    <div class="row align-items-center mb-5 bg-secondary">
+        <div class="col-md-4">
+            <img src="{% static 'images/steak.jpg' %}" alt="Our Food" class="img-fluid rounded">
+        </div>
+        <div class="col-md-8">
+            <h2>Our Food</h2>
+            <p>We focus on well-balanced meals that provide essential nutrients and energy for your busy day.</p>
+            <p>Our daily menu offerings include fresh, wholesome ingredients sourced from trusted suppliers to ensure the best quality.</p>
+            <p>With a large variety of protein sources, including vegan/vegetarian options, there is something for everyone!</p>
+            <button class="btn btn-primary">View Sample Menus</button>
+        </div>
+    </div>
+
+    <!-- Second Row: Text on Left, Image on Right -->
+    <div class="row align-items-center flex-md-row-reverse mb-5 bg-secondary">
+        <div class="col-md-4">
+            <img src="{% static 'images/salad.jpg' %}" alt="Healthy Choices" class="img-fluid rounded">
+        </div>
+        <div class="col-md-8">
+            <h2>Meal Plan Choices</h2>
+            <p>We offer several meal plan options, to ensure each student will have a plan to fit their schedule/lifestyle.</p>
+            <button class="btn btn-primary">View Plan Options</button>
+        </div>
+    </div>
+
+    <!-- Third Row: Image on Left, Text on Right -->
+    <div class="row align-items-center mb-5 bg-secondary">
+        <div class="col-md-4">
+            <img src="{% static 'images/kitchen.jpg' %}" alt="Our Kitchen" class="img-fluid rounded">
+        </div>
+        <div class="col-md-8">
+            <h2>Made with Care</h2>
+            <p>Each meal is carefully crafted in small batches to ensure consistency and great taste.</p>
+            <p>We take pride in delivering nutritious, home-style meals that make you feel at home.</p>
+            <button class="btn btn-primary">See Our Process</button>
+        </div>
+    </div>
 </main>
 
 <!-- index.html content ends here -->

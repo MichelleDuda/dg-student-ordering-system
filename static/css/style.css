@@ -15,6 +15,23 @@ body {
     padding: 0;
 }
 
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
 /* Index.Html Styles */
 #hero {
     background: url('/static/images/hero.jpeg') no-repeat center center / cover;

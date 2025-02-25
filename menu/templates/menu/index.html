@@ -5,46 +5,43 @@
 {% block content %}
 
 <!-- index.html content starts here -->
- <!-- Main Content -->
- <main>
     <section id="hero">
         <div id="hero-cover-text">
-            <h2>Nutricious Meals Delivered To Your Dorm</h2>
+            <h2>Nutricious and Delicious Meals to Fuel Your Day!</h2>
+            <p>Delivered Directly to Your Child's Dorm</p>
             <br>
-            <a href="#">View Menu</a>
+            <a id="menu-button" href="{% url 'about' %}">View Sample Menu & Pricing</a>
 
         </div>
     </section>
 
     <section id="about-us" class="center">
         <br>
-        <h2>About Us</h2>
+        <h2 class="hidden-heading">About Us</h2>
         <p> DG Catering is an off premise caterer serving the tri-state area. Our student meal delivery program offers healthy, nutricious, quality meals delivered directly to your child's dormitory.  
         </p>
-        <p class="center"> Here at DG Catering we treat your children as if they were our own!
+        <p> Here at DG Catering we treat your children as if they were our own!
         </p>
     </section>
 
     <section id="selling-points" class="center">
         <h2 class="hidden-heading">Selling Points</h2>
         <div>
-            <h3>Fresh Ingredients</h3>
+            <h3>Fresh Ingredients <i class="fa-solid fa-carrot"></i></h3>
             <hr>
             <p>We pride ourselves on using only the freshest of ingredients. Our chefs tailor menu options around seasonal produce.</p>
         </div>
         <div>
-            <h3>Reliable Service</h3>
+            <h3>Reliable Service <i class="fa-solid fa-truck"></i></h3>
             <hr>
             <p>We deliver your student's meals on a preset schedule, ensuring they have everything they need when they need it.</p>
         </div>
         <div>
-            <h3>Family Business</h3>
+            <h3>Family Business <i class="fa-solid fa-people-group"></i></h3>
             <hr>
             <p>Our small family buisness assures that each meal is hand-made and packed with care and a strong attention to quality.</p>
         </div>
     </section>
-
-</main>
 
 <!-- index.html content ends here -->
 {% endblock %}

@@ -31,7 +31,7 @@ body {
 }
 
 .footer {
-    position: fixed;
+    position: sticky;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -70,6 +70,19 @@ main {
 
 
 /* About.html Styles */
+
+/* Student_Dashbaord.html Styles */
+.dashboard-section {
+    background-color: #f8f9fa; 
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+.dashboard-section:hover {
+    transform: scale(1.05);
+}
 
 /*Signup.html Styles */
 

@@ -25,4 +25,5 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path('sample_menu/', about_views.sample_menu, name='sample_menu'),
+    path('student_dashboard/', menu_views.dashboard, name='student_dashboard'),
 ]

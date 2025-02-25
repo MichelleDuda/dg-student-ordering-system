@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- student_dashboard.html content starts here -->
+
+<section id="dashboard-intro">
+    <div id="dashboard-intro-text">
+        <h2>Welcome, {{ user.first_name }} {{ user.last_name }}!</h2>
+        <br>
+        <p>Your username: {{ user.username }}</p>
+    </div>
+</section>
+
+<!-- student_dashboard.html content ends here -->
+{% endblock %}

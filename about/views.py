@@ -5,3 +5,6 @@ from django.http import HttpResponse
 
 def about(request):
    return render(request, 'about/about.html')
+
+def sample_menu(request):
+   return render(request, 'about/sample_menu.html')

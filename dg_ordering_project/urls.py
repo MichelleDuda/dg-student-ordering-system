@@ -24,4 +24,5 @@ urlpatterns = [
     path('about/', about_views.about, name='about'),
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
+    path('sample_menu/', about_views.sample_menu, name='sample_menu'),
 ]

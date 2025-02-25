@@ -55,6 +55,9 @@
 
                     {% if user.is_authenticated %}
                         <li class="nav-item">
+                            <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Student Dashboard</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
                         </li>
                         {% else %}
@@ -68,8 +71,13 @@
                     {% endif %}
 
                 </ul>
-                <span class="navbar-text text-muted">
-                    Nutricous & Delicious Meals to Fuel Your Day!
+                <span class="navbar-text">
+                    <p>Nutricous & Delicious Meals to Fuel Your Day!</p>
+                    {% if user.is_authenticated %}
+                    <p class="mb-0">Logged in as {{ user.username }}!</p>
+                    {% else %}
+                    <p class="mb-0">You are not currently logged in!</p>
+                    {% endif %}
                 </span>
             </div>
         </div>

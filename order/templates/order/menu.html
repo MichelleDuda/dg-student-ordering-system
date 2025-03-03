@@ -1,28 +1,102 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div class="container text-center mt-4">
 <h2>Weekly Menu</h2>
 
 {% if menu_week %}
     <p>Menu for week starting: {{ menu_week.start_date }}</p>
     <form method="post" action="{% url 'place_order' %}">
         {% for day, meals in meals_by_day.items %}
-            <h3>{{ day }}</h3>
-            {% for meal in meals %}
-                <label>
-                    <input type="radio" name="meal_{{ day }}" value="{{ meal.id }}">
-                    {{ meal.name }} ({{ meal.category.meal_type }}) 
-                    {% if meal.is_plant_based %} - Plant-Based {% endif %}
-                </label><br>
-                <textarea name="notes_{{ meal.id }}" placeholder="Dietary notes (optional)"></textarea><br>
-            {% empty %}
-                <p>No meals available for {{ day }}</p>
-            {% endfor %}
+                    <div class="mb-4">
+                        <div class="card shadow-sm rounded">
+                            <div class="card-header bg-dark text-white">
+                                <h3 class="mb-0">{{ day }}</h3>
+                            </div>
+                            <div class="card-body">
+                                
+                                {% with meals|dictsort:"category.meal_type" as sorted_meals %}
+                                    {% if sorted_meals %}
+                                        
+                                        <!-- Breakfast Section -->
+                                        <h4 class="mt-3 text-dark">Breakfast</h4>
+                                        {% for meal in sorted_meals %}
+                                            {% if meal.category.meal_type == "Breakfast" %}
+                                                <div class="d-flex flex-column align-items-center">
+                                                    <div class="form-check">
+                                                        <input type="radio" class="form-check-input" name="meal_{{ day }}" value="{{ meal.id }}">
+                                                        <label class="form-check-label fs-5">{{ meal.name }} 
+                                                            {% if meal.is_plant_based %} - <span class="badge bg-secondary">Plant-Based</span>{% endif %}
+                                                        </label>
+                                                        <br>
+                                                    </div>
+                                                    <p class="fs-6 text-muted">{{ meal.description }}</p>
+                                                    <textarea class="form-control mt-2 w-50" name="notes_{{ meal.id }}" placeholder="Dietary notes (optional)"></textarea>
+                                                </div>
+                                                <br>
+                                            {% endif %}
+                                        {% empty %}
+                                            <p class="text-muted">No breakfast available.</p>
+                                        {% endfor %}
 
-            <button type="submit">Place Order</button>
-        {% endfor %}
-    </form>
-{% else %}
-    <p>No menu available.</p>
-{% endif %}
+                                        <!-- Lunch Section -->
+                                        <h4 class="mt-3 text-dark">Lunch</h4>
+                                        {% for meal in sorted_meals %}
+                                            {% if meal.category.meal_type == "Lunch" %}
+                                                <div class="d-flex flex-column align-items-center">
+                                                    <div class="form-check">
+                                                        <input type="radio" class="form-check-input" name="meal_{{ day }}" value="{{ meal.id }}">
+                                                        <label class="form-check-label fs-5">{{ meal.name }} 
+                                                            {% if meal.is_plant_based %} - <span class="badge bg-secondary">Plant-Based</span>{% endif %}
+                                                        </label>
+                                                        <br>
+                                                    </div>
+                                                    <p class="fs-6 text-muted">{{ meal.description }}</p>
+                                                    <textarea class="form-control mt-2 w-50" name="notes_{{ meal.id }}" placeholder="Dietary notes (optional)"></textarea>
+                                                </div>
+                                                <br>
+                                            {% endif %}
+                                        {% empty %}
+                                            <p class="text-muted">No lunch available.</p>
+                                        {% endfor %}
+
+                                        <!-- Dinner Section -->
+                                        <h4 class="mt-3 text-dark">Dinner</h4>
+                                        {% for meal in sorted_meals %}
+                                            {% if meal.category.meal_type == "Dinner" %}
+                                                <div class="d-flex flex-column align-items-center">
+                                                    <div class="form-check">
+                                                        <input type="radio" class="form-check-input" name="meal_{{ day }}" value="{{ meal.id }}">
+                                                        <label class="form-check-label fs-5">{{ meal.name }} 
+                                                            {% if meal.is_plant_based %} - <span class="badge bg-secondary">Plant-Based</span>{% endif %}
+                                                        </label>
+                                                        <br>
+                                                    </div>
+                                                    <p class="fs-6 text-muted">{{ meal.description }}</p>
+                                                    <textarea class="form-control mt-2 w-50" name="notes_{{ meal.id }}" placeholder="Dietary notes (optional)"></textarea>
+                                                </div>
+                                                <br>
+                                            {% endif %}
+                                        {% empty %}
+                                            <p class="text-muted">No dinner available.</p>
+                                        {% endfor %}
+
+                                    {% else %}
+                                        <p class="text-muted">No meals available for {{ day }}</p>
+                                    {% endif %}
+                                {% endwith %}
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <button type="submit" class="btn btn-primary mt-4">Place Order</button>
+
+            </form>
+        {% else %}
+            <p class="text-muted">No menu available.</p>
+        {% endif %}
+    </div>
+
 {% endblock %}

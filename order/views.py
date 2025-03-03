@@ -22,7 +22,7 @@ def menu_view(request):
         ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]}
 
    context = {"menu_week": menu_week, "meals_by_day": meals_by_day}
-   return render(request, "menu.html", context)
+   return render(request, "order/menu.html", context)
 
 
 @login_required # Ensures users can only access if logged in

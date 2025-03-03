@@ -46,10 +46,10 @@ class Order(models.Model):
             return f"Order by {self.user.username} on ({self.order_date})"
 
 class OrderItem(models.Model):
-     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="items")
-     meal = models.ForeignKey(Meal, on_delete=models.CASCADE)
-     dietary_notes = models.TextField(blank=True)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="items")
+    meal = models.ForeignKey(Meal, on_delete=models.CASCADE)
+    dietary_notes = models.TextField(blank=True)
 
-     def __str__(self):
+    def __str__(self):
         return f"{self.order.user.username} - {self.meal.name} ({self.order.order_date})"
      

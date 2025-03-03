@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from menu import views as menu_views
 from about import views as about_views
+from order import views as order_views
 
 urlpatterns = [
     path('', menu_views.index, name='home'),
@@ -26,4 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sample_menu/', about_views.sample_menu, name='sample_menu'),
     path('student_dashboard/', menu_views.dashboard, name='student_dashboard'),
+    path("menu/", order_views.menu_view, name="menu"),
+    path("place_order/", order_views.place_order, name="place_order"),
+    path("past_orders/", order_views.past_orders, name="past_orders"),
 ]

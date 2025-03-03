@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Weekly Menu</h2>
+
+{% if menu_week %}
+    <p>Menu for week starting: {{ menu_week.start_date }}</p>
+    <form method="post" action="{% url 'place_order' %}">
+        {% for day, meals in meals_by_day.items %}
+            <h3>{{ day }}</h3>
+            {% for meal in meals %}
+                <label>
+                    <input type="radio" name="meal_{{ day }}" value="{{ meal.id }}">
+                    {{ meal.name }} ({{ meal.category.meal_type }}) 
+                    {% if meal.is_plant_based %} - Plant-Based {% endif %}
+                </label><br>
+                <textarea name="notes_{{ meal.id }}" placeholder="Dietary notes (optional)"></textarea><br>
+            {% empty %}
+                <p>No meals available for {{ day }}</p>
+            {% endfor %}
+
+            <button type="submit">Place Order</button>
+        {% endfor %}
+    </form>
+{% else %}
+    <p>No menu available.</p>
+{% endif %}
+{% endblock %}

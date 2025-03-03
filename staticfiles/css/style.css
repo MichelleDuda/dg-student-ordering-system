@@ -1,4 +1,11 @@
 /* General Styles */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .center {
     text-align: center;
 }
@@ -24,7 +31,7 @@ body {
 }
 
 .footer {
-    position: fixed;
+    position: sticky;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -33,16 +40,16 @@ body {
 }
 
 main {
-    margin-top: 50px;
-    margin-bottom: 95px;
+    margin-top: 106px;
+    margin-bottom: 10px;
 }
 
 /* Index.Html Styles */
 #hero {
     background: url('/static/images/hero.jpeg') no-repeat center center / cover;
-    height: 400px;
     width: 100%;
     position: relative;
+    height: 400px;
 }
 
 #hero-cover-text {
@@ -61,8 +68,44 @@ main {
     padding-right: 10px;
 }
 
+#menu-button {
+    display: inline-block;
+    background-color: rgb(0, 0, 0);
+    color: #F0F4F7ff;
+    border: solid 3px rgb(0, 0, 0);
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 40px;
+    border-radius: 6px;
+    box-shadow: .5rem .5rem #a596a2;
+    margin-right: 10px;
+}
+
+#menu-button:hover {
+    background-color: rgb(80, 79, 70);
+}
+
+#about-us {
+    font-size: 1.2em;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
 
 /* About.html Styles */
+
+/* Student_Dashbaord.html Styles */
+.dashboard-section {
+    background-color: #f8f9fa; 
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+.dashboard-section:hover {
+    transform: scale(1.05);
+}
 
 /*Signup.html Styles */
 

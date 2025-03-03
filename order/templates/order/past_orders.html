@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Past Orders</h2>
+{% if orders %}
+    <ul>
+        {% for order in orders %}
+            <li>
+                <strong>Week of {{ order.menu_week.start_date }}</strong> - Ordered on {{ order.order_date }}
+                <ul>
+                    {% for item in order.items.all %}
+                        <li>{{ item.meal.name }} - Notes: {{ item.dietary_notes }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>You have no past orders.</p>
+{% endif %}
+{% endblock %}

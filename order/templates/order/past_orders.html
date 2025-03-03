@@ -1,20 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Your Past Orders</h2>
-{% if orders %}
-    <ul>
-        {% for order in orders %}
-            <li>
-                <strong>Week of {{ order.menu_week.start_date }}</strong> - Ordered on {{ order.order_date }}
-                <ul>
-                    {% for item in order.items.all %}
-                        <li><strong>{{ item.meal.day_of_week }} {{ item.meal.category.meal_type }}</strong> - {{ item.meal.name }} - Notes: {{ item.dietary_notes }}</li>
-                    {% endfor %}
-                </ul>
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>You have no past orders.</p>
-{% endif %}
+<div class="container mt-4">
+    <h2 class="text-center">Your Past Orders</h2>
+    {% if orders %}
+        <div class="accordion" id="ordersAccordion">
+            {% for order in orders %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+                        <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="{{ forloop.first }}" aria-controls="collapse{{ forloop.counter }}">
+                            <strong>Week of {{ order.menu_week.start_date }}</strong> - Ordered on {{ order.order_date }}
+                        </button>
+                    </h2>
+                    <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#ordersAccordion">
+                        <div class="accordion-body">
+                            <ul class="list-group">
+                                {% for item in order.items.all %}
+                                    <li class="list-group-item">
+                                        <strong>{{ item.meal.day_of_week }} - {{ item.meal.category.meal_type }}</strong>: 
+                                        {{ item.meal.name }} <br>
+                                        <small class="text-muted">Notes: {{ item.dietary_notes }}</small>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center text-muted">You have no past orders.</p>
+    {% endif %}
+</div>
 {% endblock %}

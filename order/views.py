@@ -25,12 +25,21 @@ def menu_view(request):
    return render(request, "order/menu.html", context)
 
 
-@login_required # Ensures users can only access if logged in
+@login_required
 def place_order(request):
     """Handles order submission from the menu page."""
     if request.method == "POST":
-        menu_week_id = request.POST.get("menu_week")
-        menu_week = get_object_or_404(MenuWeek, id=menu_week_id)
+        print("POST data received:", request.POST)  # Debugging
+
+        menu_week_id = request.POST.get("menu_week_id")
+        try:
+            menu_week_id = int(menu_week_id)  # Convert to integer
+            menu_week = get_object_or_404(MenuWeek, id=menu_week_id)
+        except (ValueError, TypeError):
+            messages.error(request, "Invalid MenuWeek ID.")
+            return redirect("menu")
+        
+        order = Order.objects.create(user=request.user, menu_week=menu_week)
 
         for key, meal_id in request.POST.items():
             if key.startswith("meal_"):  
@@ -42,6 +51,7 @@ def place_order(request):
         return redirect("past_orders")  
     
     return redirect("menu")  # Redirect to menu if accessed incorrectly
+
 
 @login_required # Ensures users can only access if logged in
 def past_orders(request):

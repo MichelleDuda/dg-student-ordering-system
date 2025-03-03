@@ -8,7 +8,7 @@
                 <strong>Week of {{ order.menu_week.start_date }}</strong> - Ordered on {{ order.order_date }}
                 <ul>
                     {% for item in order.items.all %}
-                        <li>{{ item.meal.name }} - Notes: {{ item.dietary_notes }}</li>
+                        <li><strong>{{ item.meal.day_of_week }} {{ item.meal.category.meal_type }}</strong> - {{ item.meal.name }} - Notes: {{ item.dietary_notes }}</li>
                     {% endfor %}
                 </ul>
             </li>

@@ -6,11 +6,10 @@
 
 <!-- student_dashboard.html content starts here -->
 
-<section id="dashboard-intro">
+<section id="dashboard-intro" class="container text-center bg-light p-4 mt-5 rounded shadow">
     <div id="dashboard-intro-text">
         <h2>Welcome, {{ user.first_name }} {{ user.last_name }}!</h2>
-        <br>
-        <p>Your username: {{ user.username }}</p>
+        <p class="mt-3">Your username: <strong>{{ user.username }}</strong></p>
     </div>
 </section>
 

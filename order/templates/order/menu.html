@@ -6,7 +6,6 @@
 
 {% if menu_week %}
     <p>Menu for week starting: {{ menu_week.start_date }}</p>
-    <p>Debug: MenuWeek ID = {{ menu_week.id }}</p>
     <form method="post" action="{% url 'place_order' %}">
         {% csrf_token %}
         <input type="hidden" name="menu_week_id" value="{{ menu_week.id }}">
@@ -30,7 +29,10 @@
                                                     {% if meal.category.meal_type == "Breakfast" %}
                                                         <div class="d-flex flex-column align-items-center">
                                                             <div class="form-check">
-                                                                <input type="radio" class="form-check-input" name="meal_{{ day }}_breakfast" value="{{ meal.id }}">
+                                                                <input type="radio" class="form-check-input" 
+                                                                    name="meal_{{ day }}_breakfast" 
+                                                                    value="{{ meal.id }}"
+                                                                    {% if meal.id in selected_meal_ids %} checked {% endif %}>
                                                                 <label class="form-check-label fs-5">{{ meal.name }} 
                                                                     {% if meal.is_plant_based %} - <span class="badge bg-secondary">Plant-Based</span>{% endif %}
                                                                 </label>
@@ -55,7 +57,10 @@
                                                     {% if meal.category.meal_type == "Lunch" %}
                                                         <div class="d-flex flex-column align-items-center">
                                                             <div class="form-check">
-                                                                <input type="radio" class="form-check-input" name="meal_{{ day }}_lunch" value="{{ meal.id }}">
+                                                                <input type="radio" class="form-check-input" 
+                                                                    name="meal_{{ day }}_lunch" 
+                                                                    value="{{ meal.id }}"
+                                                                    {% if meal.id in selected_meal_ids %} checked {% endif %}>
                                                                 <label class="form-check-label fs-5">{{ meal.name }} 
                                                                     {% if meal.is_plant_based %} - <span class="badge bg-secondary">Plant-Based</span>{% endif %}
                                                                 </label>
@@ -80,7 +85,10 @@
                                                     {% if meal.category.meal_type == "Dinner" %}
                                                         <div class="d-flex flex-column align-items-center">
                                                             <div class="form-check">
-                                                                <input type="radio" class="form-check-input" name="meal_{{ day }}_dinner" value="{{ meal.id }}">
+                                                                <input type="radio" class="form-check-input" 
+                                                                    name="meal_{{ day }}_dinner" 
+                                                                    value="{{ meal.id }}"
+                                                                    {% if meal.id in selected_meal_ids %} checked {% endif %}>
                                                                 <label class="form-check-label fs-5">{{ meal.name }} 
                                                                     {% if meal.is_plant_based %} - <span class="badge bg-secondary">Plant-Based</span>{% endif %}
                                                                 </label>

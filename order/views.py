@@ -9,21 +9,35 @@ from .models import MenuWeek, Meal, Order, OrderItem
 def index(request):
    return render(request, 'menu/index.html')
 
-@login_required  # Ensures users can only access if logged in
+@login_required
 def menu_view(request):
-   today = date.today()
-   menu_week = MenuWeek.objects.filter(start_date__lte=today).order_by('-start_date').first()
+    today = date.today()
+    menu_week = MenuWeek.objects.filter(start_date__lte=today).order_by('-start_date').first()
 
-   if not menu_week:
+    if not menu_week:
         messages.warning(request, "No menu available for this week.")
         return redirect("past_orders")
     
-   meals_by_day = {day: Meal.objects.filter(menu_week=menu_week, day_of_week=day) for day in 
-        ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]}
+    meals_by_day = {
+        day: Meal.objects.filter(menu_week=menu_week, day_of_week=day)
+        for day in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    }
 
-   context = {"menu_week": menu_week, "meals_by_day": meals_by_day}
-   return render(request, "order/menu.html", context)
+    # Retrieve user's existing order
+    order = Order.objects.filter(user=request.user, menu_week=menu_week).first()
+    
+    # Store selected meals in a SET for easy lookup
+    selected_meal_ids = set()
+    if order:
+        for item in order.items.all():
+            selected_meal_ids.add(item.meal.id)
 
+    context = {
+        "menu_week": menu_week,
+        "meals_by_day": meals_by_day,
+        "selected_meal_ids": selected_meal_ids,  # Pass as a set
+    }
+    return render(request, "order/menu.html", context)
 
 @login_required
 def place_order(request):
@@ -36,10 +50,14 @@ def place_order(request):
             menu_week_id = int(menu_week_id)  # Convert to integer
             menu_week = get_object_or_404(MenuWeek, id=menu_week_id)
         except (ValueError, TypeError):
-            messages.error(request, "Invalid MenuWeek ID.")
+            messages.error(request, "Invalid MenuWeek ID")
             return redirect("menu")
         
-        order = Order.objects.create(user=request.user, menu_week=menu_week)
+        # Check if an order exists for this user for the week.        
+        order, created = Order.objects.get_or_create(user=request.user, menu_week=menu_week)
+
+        # Clear preveious selections before updating
+        order.items.all().delete()
 
         for key, meal_id in request.POST.items():
             if key.startswith("meal_"):  
@@ -47,7 +65,10 @@ def place_order(request):
                 dietary_notes = request.POST.get(f"notes_{meal_id}", "")
                 OrderItem.objects.create(order=order, meal=meal, dietary_notes=dietary_notes)
 
-        messages.success(request, "Your order has been placed successfully!")
+        if created: 
+            messages.success(request, "Your order has been placed successfully!")
+        else:
+            messages.success(request, "Your order has been updated successfully!")
         return redirect("past_orders")  
     
     return redirect("menu")  # Redirect to menu if accessed incorrectly

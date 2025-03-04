@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load custom_filters %}
 {% block content %}
 
 <div class="container text-center mt-4">
@@ -39,7 +40,9 @@
                                                                 <br>
                                                             </div>
                                                             <p class="fs-6 text-muted">{{ meal.description }}</p>
-                                                            <textarea class="form-control mt-2 w-50" name="notes_{{ meal.id }}" placeholder="Dietary notes (optional)"></textarea>
+                                                            <textarea class="form-control mt-2 w-50"
+                                                                name="notes_{{ meal.id }}" 
+                                                                placeholder="Dietary notes (optional)">{{ dietary_notes|get_item:meal.id }}</textarea>
                                                         </div>
                                                         <br>
                                                     {% endif %}
@@ -67,7 +70,9 @@
                                                                 <br>
                                                             </div>
                                                             <p class="fs-6 text-muted">{{ meal.description }}</p>
-                                                            <textarea class="form-control mt-2 w-50" name="notes_{{ meal.id }}" placeholder="Dietary notes (optional)"></textarea>
+                                                            <textarea class="form-control mt-2 w-50"
+                                                                name="notes_{{ meal.id }}" 
+                                                                placeholder="Dietary notes (optional)">{{ dietary_notes|get_item:meal.id }}</textarea>
                                                         </div>
                                                         <br>
                                                     {% endif %}
@@ -95,7 +100,9 @@
                                                                 <br>
                                                             </div>
                                                             <p class="fs-6 text-muted">{{ meal.description }}</p>
-                                                            <textarea class="form-control mt-2 w-50" name="notes_{{ meal.id }}" placeholder="Dietary notes (optional)"></textarea>
+                                                            <textarea class="form-control mt-2 w-50"
+                                                                name="notes_{{ meal.id }}" 
+                                                                placeholder="Dietary notes (optional)">{{ dietary_notes|get_item:meal.id }}</textarea>
                                                         </div>
                                                         <br>
                                                     {% endif %}

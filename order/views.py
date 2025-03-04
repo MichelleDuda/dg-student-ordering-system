@@ -28,14 +28,18 @@ def menu_view(request):
     
     # Store selected meals in a SET for easy lookup
     selected_meal_ids = set()
+    dietary_notes = {}
+
     if order:
         for item in order.items.all():
             selected_meal_ids.add(item.meal.id)
+            dietary_notes[item.meal.id] = item.dietary_notes or ""
 
     context = {
         "menu_week": menu_week,
         "meals_by_day": meals_by_day,
-        "selected_meal_ids": selected_meal_ids,  # Pass as a set
+        "selected_meal_ids": selected_meal_ids,
+        "dietary_notes": dietary_notes if dietary_notes else {},
     }
     return render(request, "order/menu.html", context)
 

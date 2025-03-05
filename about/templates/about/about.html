@@ -4,49 +4,48 @@
 
 {% block content %}
 
-<!-- index.html content starts here -->
- <!-- Main Content -->
- <div class="container py-5">
+<!-- about.html content starts here -->
+<div class="container py-5 transparent-box">
 
-    <!-- First Row: Image on Left, Text on Right -->
-    <div class="row align-items-center mb-5 bg-secondary">
+    <!-- Section Heading -->
+    <div class="text-center mb-4">
+        <h1 class="fw-bold">About Our Meal Services</h1>
+        <h3 class="fw-bold text-center">Full Meal Plan - Breakfast, Lunch & Dinner - Only $28/day</h3>
+    </div>
+
+    <!-- Food Gallery Grid -->
+    <div class="row g-4">
         <div class="col-md-4">
-            <img src="{% static 'images/steak.jpg' %}" alt="Our Food" class="img-fluid rounded">
+            <img src="{% static 'images/steak.webp' %}" alt="Steak Dish" class="img-fluid rounded shadow fixed-image">
         </div>
-        <div class="col-md-8">
-            <h2>Our Food</h2>
-            <p>We focus on well-balanced meals that provide essential nutrients and energy for your busy day.</p>
-            <p>Our daily menu offerings include fresh, wholesome ingredients sourced from trusted suppliers to ensure the best quality.</p>
-            <p>With a large variety of protein sources, including vegan/vegetarian options, there is something for everyone!</p>
-            <a href="{% url 'sample_menu' %}" class="btn btn-primary">View Sample Menus</a>
+        <div class="col-md-4">
+            <img src="{% static 'images/salad.webp' %}" alt="Salad Dish" class="img-fluid rounded shadow fixed-image">
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'images/chicken.webp' %}" alt="Chicken Dish" class="img-fluid rounded shadow fixed-image">
+        </div>
+    </div>
+    <br>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <img src="{% static 'images/muffin.webp' %}" alt="Muffin" class="img-fluid rounded shadow fixed-image">
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'images/parfait.webp' %}" alt="Parfait" class="img-fluid rounded shadow fixed-image">
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'images/omelette.webp' %}" alt="Omelette Dish" class="img-fluid rounded shadow fixed-image">
         </div>
     </div>
 
-    <!-- Second Row: Text on Left, Image on Right -->
-    <div class="row align-items-center flex-md-row-reverse mb-5 bg-secondary">
-        <div class="col-md-4">
-            <img src="{% static 'images/salad.jpg' %}" alt="Healthy Choices" class="img-fluid rounded">
-        </div>
-        <div class="col-md-8">
-            <h2>Meal Plan Choices</h2>
-            <p>We offer several meal plan options, to ensure each student will have a plan to fit their schedule/lifestyle.</p>
-            <button class="btn btn-primary">View Plan Options</button>
-        </div>
-    </div>
-
-    <!-- Third Row: Image on Left, Text on Right -->
-    <div class="row align-items-center mb-5 bg-secondary">
-        <div class="col-md-4">
-            <img src="{% static 'images/kitchen.jpg' %}" alt="Our Kitchen" class="img-fluid rounded">
-        </div>
-        <div class="col-md-8">
-            <h2>Made with Care</h2>
-            <p>Each meal is carefully crafted in small batches to ensure consistency and great taste.</p>
-            <p>We take pride in delivering nutritious, home-style meals that make you feel at home.</p>
-            <button class="btn btn-primary">See Our Process</button>
-        </div>
+    <div class="mt-4">
+        <p class="text-dark text-center">We focus on well-balanced meals that provide essential nutrients and energy for your busy day. 
+            Our daily menu includes fresh, wholesome ingredients with both regular and plant-based options.</p>
+        <p class="text-dark text-center mt-2">Delicious and Nutritious meals are prepared by our team of culinary experts and delivered directly to your child's dormoritory.</p>
+        <p class="text-dark text-center mt-2">Once you sign up for a meal plan, you will need to register for an account for your child.</p>
+        <p class="text-dark text-center">Each week a new menu is posted for the following week. Your child will simply need to log in and make their selections from the current menu.</p>
     </div>
 </div>
 
-<!-- index.html content ends here -->
+<!-- about.html content ends here -->
 {% endblock %}

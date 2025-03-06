@@ -45,6 +45,14 @@
         <p class="text-dark text-center mt-2">Once you sign up for a meal plan, you will need to register for an account for your child.</p>
         <p class="text-dark text-center">Each week a new menu is posted for the following week. Your child will simply need to log in and make their selections from the current menu.</p>
     </div>
+
+    <div class="text-center mt-3">
+        <a href="{% url 'sample_menu' %}" 
+           class="btn btn-primary {% if request.path == sample_menu %}active{% endif %}">
+           View Sample Menu
+        </a>
+    </div>
+
 </div>
 
 <!-- about.html content ends here -->

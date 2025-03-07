@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from datetime import date
@@ -12,11 +13,11 @@ def index(request):
 @login_required
 def menu_view(request):
     today = date.today()
-    menu_week = MenuWeek.objects.filter(start_date__lte=today).order_by('-start_date').first()
+    menu_week = MenuWeek.objects.filter(start_date__gt=today).order_by('start_date').first()
 
     if not menu_week:
         messages.warning(request, "No menu available for this week.")
-        return redirect("past_orders")
+        return HttpResponseRedirect(reverse("past_orders"))
     
     meals_by_day = {
         day: Meal.objects.filter(menu_week=menu_week, day_of_week=day)

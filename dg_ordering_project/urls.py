@@ -31,3 +31,6 @@ urlpatterns = [
     path("place_order/", order_views.place_order, name="place_order"),
     path("past_orders/", order_views.past_orders, name="past_orders"),
 ]
+
+handler404 = 'menu.views.handler404'
+handler500 = 'menu.views.handler500'

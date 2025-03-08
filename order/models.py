@@ -32,7 +32,7 @@ class Meal(models.Model):
     description = models.TextField(blank=True)
 
     def __str__(self):
-        return f"{self.day_of_week} - {self.category.meal_type}: {self.name}"
+        return f"{self.menu_week} - {self.day_of_week} - {self.category.meal_type}: {self.name}"
     
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="orders")

@@ -82,14 +82,29 @@
         </div>
     </nav>
 
-    <!-- Code to Generate Alert Messages --> 
-    {% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-{{ message.tags }} mt-3" role="alert">
-            {{ message }}
+    <!-- Modal to Generate Alert Messages --> 
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="messageModalLabel">Alert</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
         </div>
-    {% endfor %}
-    {% endif %}
+        </div>
+    </div>
 
     <main class="flex-shrink-0 main-bg">
 
@@ -128,6 +143,9 @@
 
     <!-- Font Awesome Kit-->
     <script src="https://kit.fontawesome.com/cc99900843.js" crossorigin="anonymous"></script>
+
+    <!-- Custom JS Code-->
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>

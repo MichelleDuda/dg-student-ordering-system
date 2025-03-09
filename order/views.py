@@ -48,7 +48,6 @@ def menu_view(request):
 def place_order(request):
     """Handles order submission from the menu page."""
     if request.method == "POST":
-        print("POST data received:", request.POST)  # Debugging
 
         menu_week_id = request.POST.get("menu_week_id")
         try:
@@ -74,8 +73,9 @@ def place_order(request):
             messages.success(request, "Your order has been placed successfully!")
         else:
             messages.success(request, "Your order has been updated successfully!")
+
         return redirect("past_orders")  
-    
+        
     return redirect("menu")  # Redirect to menu if accessed incorrectly
 
 

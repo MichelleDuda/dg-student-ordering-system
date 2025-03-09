@@ -32,7 +32,7 @@
                             {% if order.menu_week.start_date|date:"Y-m-d" > now|date:"Y-m-d" %}
                                 <div>
                                     <a href="#" class="btn btn-warning btn-sm me-2 mt-3">Update</a>
-                                    <a href="{% url 'delete_order' order.id %}" class="btn btn-danger btn-sm mt-3">Delete</a>
+                                    <a href="#" id="delete-initialization-btn" class="btn btn-danger btn-sm mt-3" data-order-id="{{ order.id }}" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete (ID: {{ order.id }})</a>
                                 </div>
                             {% endif %}
                         </div>
@@ -43,6 +43,40 @@
     {% else %}
         <p class="text-center text-muted">You have no past orders.</p>
     {% endif %}
+</div>
+
+<!-- Pass Delete URL to Javascript -->
+<script type="text/javascript">
+    const deleteUrlBase = "{% url 'delete_order' 0 %}";  
+</script>
+
+<!-- Delete confirmation modal adapted from Django Blog Project -->
+<div class="modal fade" id="deleteModal" tabindex="-1"
+  aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"
+          id="deleteModalLabel">Delete Order?</h5>
+        <button type="button" class="btn-close"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete your order?
+        This action cannot be undone.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"
+          data-bs-dismiss="modal">Close</button>
+
+        <form id="deleteForm" method="POST" action="">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}

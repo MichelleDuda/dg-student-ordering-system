@@ -31,8 +31,8 @@
                             </div>
                             {% if order.menu_week.start_date|date:"Y-m-d" > now|date:"Y-m-d" %}
                                 <div>
-                                    <a href="#" class="btn btn-warning btn-sm me-2 mt-3">Update</a>
-                                    <a href="#" id="delete-initialization-btn" class="btn btn-danger btn-sm mt-3" data-order-id="{{ order.id }}" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete (ID: {{ order.id }})</a>
+                                    <a href="{% url 'menu' %}" class="btn btn-warning btn-sm me-2 mt-3">Update</a>
+                                    <a href="#" id="delete-initialization-btn" class="btn btn-danger btn-sm mt-3" data-order-id="{{ order.id }}" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
                                 </div>
                             {% endif %}
                         </div>

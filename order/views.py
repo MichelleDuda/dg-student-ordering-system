@@ -79,8 +79,17 @@ def place_order(request):
     return redirect("menu")  # Redirect to menu if accessed incorrectly
 
 
-@login_required # Ensures users can only access if logged in
+@login_required 
 def past_orders(request):
     """Display a user's past orders."""
     orders = Order.objects.filter(user=request.user).order_by("-order_date")
     return render(request, "order/past_orders.html", {"orders": orders})
+
+@login_required
+def delete_order(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+
+    if order.user == request.user:
+        order.delete()
+
+    return redirect('past_orders')

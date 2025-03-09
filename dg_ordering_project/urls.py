@@ -25,6 +25,7 @@ urlpatterns = [
     path('about/', about_views.about, name='about'),
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
+    path('delete_order/<int:order_id>/', order_views.delete_order, name='delete_order'),
     path('sample_menu/', about_views.sample_menu, name='sample_menu'),
     path('student_dashboard/', menu_views.dashboard, name='student_dashboard'),
     path("menu/", order_views.menu_view, name="menu"),

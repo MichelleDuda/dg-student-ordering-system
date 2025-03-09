@@ -32,7 +32,7 @@
                             {% if order.menu_week.start_date|date:"Y-m-d" > now|date:"Y-m-d" %}
                                 <div>
                                     <a href="#" class="btn btn-warning btn-sm me-2 mt-3">Update</a>
-                                    <a href="#" class="btn btn-danger btn-sm mt-3">Delete</a>
+                                    <a href="{% url 'delete_order' order.id %}" class="btn btn-danger btn-sm mt-3">Delete</a>
                                 </div>
                             {% endif %}
                         </div>

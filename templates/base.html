@@ -12,7 +12,7 @@
 
 <head>
     <title>DG Catering Student Ordering System</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Meta tags for search engines -->
     <meta name="description"
@@ -33,6 +33,8 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    
 
 </head>
 
@@ -78,9 +80,9 @@
                 </ul>
                 <span class="navbar-text">
                     {% if user.is_authenticated %}
-                    <p class="mb-0">Currently logged in as {{ user.username }}!</p>
+                    <div class="mb-0">Currently logged in as {{ user.username }}!</div>
                     {% else %}
-                    <p class="mb-0">You are not currently logged in!</p>
+                    <div class="mb-0">You are not currently logged in!</div>
                     {% endif %}
                 </span>
             </div>
@@ -112,7 +114,7 @@
     <!-- Footer -->
     <footer class="footer mt-auto py-3 bg-dark">
         <p class="m-0 text-center text-white">DG Hospitality</p>
-        <p class="m-0 text-center text-white">Follow us: 
+        <p class="m-0 text-center text-white">Follow us: </p>
             <ul id="social-networks" class="list-unstyled d-flex justify-content-center gap-3 mt-3">
                 <li><a href="https://www.facebook.com" target="_blank" rel="noopener"
                         aria-label="Visit our Facebook page (opens in a new tab)" class="text-white"><i
@@ -129,7 +131,6 @@
                         aria-label="Visit our Instagram page (opens in a new tab)" class="text-white"><i
                             class="fa-brands fa-instagram"></i></a></li>
             </ul>
-        </p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"

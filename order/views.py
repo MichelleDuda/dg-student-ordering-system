@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from datetime import date
+from django.utils import timezone
 from .models import MenuWeek, Meal, Order, OrderItem
 
 # Views
@@ -83,6 +84,12 @@ def place_order(request):
 def past_orders(request):
     """Display a user's past orders."""
     orders = Order.objects.filter(user=request.user).order_by("-order_date")
+
+    today = timezone.now().date()
+    for order in orders:
+        start_date = order.menu_week.start_date
+
+        order.show_buttons = start_date > today
     return render(request, "order/past_orders.html", {"orders": orders})
 
 @login_required

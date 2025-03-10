@@ -7,14 +7,21 @@ from .forms import CustomUserChangeForm
 
 # Views
 
+
 # Homepage View
 def index(request):
-   return render(request, 'menu/index.html')
+    return render(request, 'menu/index.html')
+
 
 # Student Dashboard View
-@login_required  
+@login_required
 def dashboard(request):
-    return render(request, 'menu/student_dashboard.html', {'user': request.user})
+    return render(
+        request,
+        'menu/student_dashboard.html',
+        {'user': request.user}
+    )
+
 
 # Uesr Information Update View
 @login_required
@@ -31,11 +38,16 @@ def update_profile(request):
 
             user.save()
             update_session_auth_hash(request, user)
-            
-            messages.success(request, 'Your information has been updated successfully!')
-            return redirect('student_dashboard')  
-        else: 
-            messages.warning (request, 'There was an error processing your request. Try again')
+            messages.success(
+                request,
+                'Your information has been updated successfully!'
+            )
+            return redirect('student_dashboard')
+        else:
+            messages.warning(
+                request,
+                'There was an error processing your request. Try again'
+            )
 
     else:
         form = CustomUserChangeForm(instance=request.user)
@@ -46,6 +58,7 @@ def update_profile(request):
 # Custom Error Pages
 def handler404(request, exception):
     return render(request, "errors/404.html", status=404)
+
 
 def handler500(request):
     return render(request, "errors/500.html", status=500)

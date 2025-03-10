@@ -8,26 +8,35 @@ from .models import MenuWeek, Meal, Order, OrderItem
 
 # Views
 
-def index(request):
-   return render(request, 'menu/index.html')
 
 @login_required
 def menu_view(request):
+    """Handles retrieving the menu for new oders and updates."""
     today = date.today()
-    menu_week = MenuWeek.objects.filter(start_date__gt=today).order_by('start_date').first()
+    menu_week = (
+        MenuWeek.objects.filter(start_date__gt=today)
+        .order_by('start_date')
+        .first()
+    )
 
     if not menu_week:
         messages.warning(request, "No menu available for this week.")
         return redirect("past_orders")
-    
+
     meals_by_day = {
         day: Meal.objects.filter(menu_week=menu_week, day_of_week=day)
-        for day in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        for day in [
+            "Monday", "Tuesday", "Wednesday", "Thursday",
+            "Friday", "Saturday", "Sunday"
+        ]
     }
 
     # Retrieve user's existing order
-    order = Order.objects.filter(user=request.user, menu_week=menu_week).first()
-    
+    order = Order.objects.filter(
+        user=request.user,
+        menu_week=menu_week
+    ).first()
+
     # Store user's order in set
     selected_meal_ids = set()
     dietary_notes = {}
@@ -45,6 +54,7 @@ def menu_view(request):
     }
     return render(request, "order/menu.html", context)
 
+
 @login_required
 def place_order(request):
     """Handles order submission from the menu page."""
@@ -57,30 +67,43 @@ def place_order(request):
         except (ValueError, TypeError):
             messages.error(request, "Invalid MenuWeek ID")
             return redirect("menu")
-        
-        # Check if an order exists for this user for the week.        
-        order, created = Order.objects.get_or_create(user=request.user, menu_week=menu_week)
+
+        # Check if an order exists for this user for the week.
+        order, created = Order.objects.get_or_create(
+            user=request.user,
+            menu_week=menu_week
+        )
 
         # Clear preveious selections before updating
         order.items.all().delete()
 
         for key, meal_id in request.POST.items():
-            if key.startswith("meal_"):  
+            if key.startswith("meal_"):
                 meal = get_object_or_404(Meal, id=meal_id)
                 dietary_notes = request.POST.get(f"notes_{meal_id}", "")
-                OrderItem.objects.create(order=order, meal=meal, dietary_notes=dietary_notes)
+                OrderItem.objects.create(
+                    order=order,
+                    meal=meal,
+                    dietary_notes=dietary_notes
+                )
 
-        if created: 
-            messages.success(request, "Your order has been placed successfully!")
+        if created:
+            messages.success(
+                request,
+                "Your order has been placed successfully!"
+            )
         else:
-            messages.success(request, "Your order has been updated successfully!")
+            messages.success(
+                request,
+                "Your order has been updated successfully!"
+            )
 
-        return redirect("past_orders")  
-        
+        return redirect("past_orders")
+
     return redirect("menu")  # Redirect to menu if accessed incorrectly
 
 
-@login_required 
+@login_required
 def past_orders(request):
     """Display a user's past orders."""
     orders = Order.objects.filter(user=request.user).order_by("-order_date")
@@ -91,6 +114,7 @@ def past_orders(request):
 
         order.show_buttons = start_date > today
     return render(request, "order/past_orders.html", {"orders": orders})
+
 
 @login_required
 def delete_order(request, order_id):

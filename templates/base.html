@@ -78,13 +78,12 @@
                     {% endif %}
 
                 </ul>
-                <span class="navbar-text">
-                    {% if user.is_authenticated %}
-                    <div class="mb-0">Currently logged in as {{ user.username }}!</div>
+                {% if user.is_authenticated %}
+                    <span class="navbar-text mb-0">Currently logged in as {{ user.username }}!</span>
                     {% else %}
-                    <div class="mb-0">You are not currently logged in!</div>
+                    <span class="navbar-text mb-0">You are not currently logged in!</span>
                     {% endif %}
-                </span>
+                
             </div>
         </div>
     </nav>

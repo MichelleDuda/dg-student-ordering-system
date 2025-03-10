@@ -13,7 +13,7 @@ def index(request):
 @login_required
 def menu_view(request):
     today = date.today()
-    menu_week = MenuWeek.objects.filter(start_date__gte=today).order_by('start_date').first()
+    menu_week = MenuWeek.objects.filter(start_date__gt=today).order_by('start_date').first()
 
     if not menu_week:
         messages.warning(request, "No menu available for this week.")
@@ -27,7 +27,7 @@ def menu_view(request):
     # Retrieve user's existing order
     order = Order.objects.filter(user=request.user, menu_week=menu_week).first()
     
-    # Store selected meals in a SET for easy lookup
+    # Store user's order in set
     selected_meal_ids = set()
     dietary_notes = {}
 

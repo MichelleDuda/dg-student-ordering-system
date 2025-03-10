@@ -44,6 +44,10 @@ main {
     margin-bottom: 10px;
 }
 
+#alert-message {
+    text-align: center;
+}
+
 /* Index.Html Styles */
 #hero {
     background: url('/static/images/hero.jpeg') no-repeat center center / cover;

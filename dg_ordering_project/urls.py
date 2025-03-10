@@ -31,6 +31,7 @@ urlpatterns = [
     path("menu/", order_views.menu_view, name="menu"),
     path("place_order/", order_views.place_order, name="place_order"),
     path("past_orders/", order_views.past_orders, name="past_orders"),
+    path('update_profile/', menu_views.update_profile, name='update_profile')
 ]
 
 handler404 = 'menu.views.handler404'

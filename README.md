@@ -182,6 +182,12 @@ The databse for the  ***DG Catering Student Meal Plan Protal** is structured as 
 <img src="static/documentation/features/sign_in.jpg">
 <img src="static/documentation/features/sign_out.jpg">
 
+### Profile Update Page
+- The profile update page contains a form where users are able to manipulate backend user data from the portal.
+
+### Contact/Feeback Page
+- The contact page conatins a form that will allow the user to send an email to the admin team. At the moment it prints the form data to the terminal and can be wired up to actually interact with an email system later.
+
 ### User Feedback Messages
 - Feedback messages are present throughout the site to confirm to a user that they were successful in signing in, signing out, placing an order, updating an order, updating their profile, etc. 
 

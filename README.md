@@ -205,7 +205,6 @@ In order to effectively manage the development, I utilized GitHub Projects, and 
 
 
 
-
 ## Technologies Used
 
 
@@ -229,7 +228,6 @@ In order to effectively manage the development, I utilized GitHub Projects, and 
 - PostgreSQL
 - [Django](https://www.djangoproject.com/) was used as the backend framework.
 - Bootstrap
-- Bootstrap Crispy
 - Bootstrap Widget-Tweaks
 - Django AllAuth
 - OAuthLib
@@ -240,6 +238,17 @@ In order to effectively manage the development, I utilized GitHub Projects, and 
 For detailed testing results, refer to the [Testing Documentation](TESTING.md)
 
 ## Deployment
+
+### PostgreSQL Setup
+1. Create a New Database Instance
+2. Retrieve Database URL from your account dashboard.
+3. Store the Database URL in env.py file as follows:
+        import os
+        os.environ["DATABASE_URL"] = "<your_postgres_connection_url>"
+4. Ensure your env.py file is in gitignore
+5. Add DATABASE_URL to Heroku Config Vars by navigating to Settings>Reveal Config Vars and adding:  
+    - Key: `DATABASE_URL`  
+    - Value: `<your_postgres_connection_url>`  
 
 ### How This Site Was Deployed
 This site was deployed via Heroku.
@@ -259,7 +268,7 @@ This site was deployed via Heroku.
 ### How to Clone the Repository
 
 To Clone this repository:
-1. Navigate to [https://github.com/MichelleDuda/hangman](https://github.com/MichelleDuda/hangman).
+1. Navigate to [https://github.com/MichelleDuda/dg-student-ordering-system](https://github.com/MichelleDuda/dg-student-ordering-system).
 2. Click on the "<> Code" button.
 3. Copy the URL for the repository using HTTPS, SSH, or GitHub CLI. 
 4. Open Git Bash.
@@ -270,6 +279,18 @@ To Clone this repository:
 
 
 ## Credits
+
+### Photos
+1. [hero.webp](https://www.pexels.com/photo/salmon-dish-with-vegetables-1516415/) by Valeria Boltneva from Pexels. 
+2. [background.webp](https://www.pexels.com/photo/close-up-photo-of-a-marble-surface-6634150/) by Kaboompics.com from Pexels. 
+3. [chicken.webp](https://www.pexels.com/photo/close-up-photo-of-tasty-looking-cuisine-1860204/) by Valeria Boltneva from Pexels. 
+4. [fish.webp](https://www.pexels.com/photo/fish-salad-dish-262959/) by Dana Tentis from Pexels. 
+5. [muffin.webp](https://www.pexels.com/photo/cooked-food-65172/) by Mali Maeder from Pexels. 
+6. [omelette.webp](https://www.pexels.com/photo/selective-focus-photography-of-omelette-with-toppings-1437268/) by Engin Akyurt from Pexels. 
+7. [parfait.webp](https://www.pexels.com/photo/a-dessert-in-a-glass-7994282/) by Ecrin from Pexels. 
+8. [pasta.webp](https://www.pexels.com/photo/selective-focus-photography-of-pasta-with-tomato-and-basil-1279330/) by Lisa from Pexels. 
+9. [salad.webp](https://www.pexels.com/photo/a-bowl-of-food-with-vegetables-and-meat-on-it-27969844/) by Valeria Boltneva from Pexels. 
+10. [steak.webp](https://www.pexels.com/photo/steak-food-769289/) by Malidate Van from Pexels. 
 
 
 ### Code

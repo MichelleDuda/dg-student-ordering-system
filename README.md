@@ -1,6 +1,7 @@
 # DG Catering Student Meal Plan Portal
 
 ![DG Catering Student Meal Plan Portal](static/documentation/dgstudentordering.jpg)
+Link to Live Site: [DG Catering Student Meal Plan Portal](https://dg-student-ordering-system-3f18b93375de.herokuapp.com/)
 
 ## Index - Table of Contents
 * [Introduction](#introduction)
@@ -20,13 +21,6 @@
     * [Languages](#languages)
     * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
 * [Testing](#testing)
-    * [Validator Testing](#validator-testing)
-    * [Lighthouse Testing](#lighthouse-testing)
-    * [Additional Manual Testing](#additional-manual-testing)
-    * [User Story Testing](#user-story-testing)
-    * [Browser Compatibility](#browser-compatibility)
-    * [Bugs](#bugs)
-    * [Known Bugs](#known-bugs)
 * [Deployment](#deployment)
     * [How This Site Was Deployed](#how-this-site-was-deployed)
     * [How to Clone The Repository](#how-to-clone-the-repository)
@@ -76,6 +70,28 @@ Google Fonts was used to import the Roboto and Lato fonts. These were chosen as 
 A background image is used across all pages of the site for consistency. It is meant to simulate a marble countertop. 
 
 ### Wireframes
+
+The  wireframes were created in Balsamiq to outline the basic structure of the site. These wireframes were kept simple, reflecting a clean professional minimalist design approach. 
+
+<details><summary>Home Page</summary>
+<img src="static/documentation/wireframes/index.html.png">
+</details>
+<details><summary>About Page</summary>
+<img src="static/documentation/wireframes/about.html.png">
+</details>
+<details><summary>Sample Menu Page</summary>
+<img src="static/documentation/wireframes/sample_menu.html.png">
+</details>
+<details><summary>Student Dashboard Page</summary>
+<img src="static/documentation/wireframes/student_dashboard.html.png">
+</details>
+<details><summary>Menu/Order Page</summary>
+<img src="static/documentation/wireframes/menu.html.png">
+</details>
+<details><summary>Past Orders Page</summary>
+<img src="static/documentation/wireframes/past_orders.html.png">
+</details>
+
 
 ### Database Design and ERD
 The databse for the  ***DG Catering Student Meal Plan Protal** is structured as follows: 
@@ -202,18 +218,6 @@ Bootstrap
 
 ## Testing
 For detailed testing results, refer to the [Testing Documentation](TESTING.md)
-
-### Browser Compatibility
-This website was tested on the following browsers:
-- Google Chrome Version 129.0.6668.103 (Official Build) (64-bit)
-- Microsoft Edge Version 130.0.2849.46 (Official build) (64-bit)
-- Mozilla Firefox Version 128.0.3 (64-bit)
-
-### Bugs
-
-
-### Known Bugs
-There are no unaddressed known bugs at this time. 
 
 ## Deployment
 

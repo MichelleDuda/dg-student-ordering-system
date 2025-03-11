@@ -31,6 +31,13 @@ The style.css file passed through the [CSS Validator](https://jigsaw.w3.org/css-
 
 [Full Results](static/documentation/testing/validator_results/css_validator.pdf)
 
+### Javascript Validation
+
+- [Javascript Validator](https://jshint.com)
+  - Code from script.js passed through JSHint site with no errors. The following Metrics were logged: There are 7 functions in this file. Function with the largest signature take 1 arguments, while the median is 0. Largest function has 7 statements in it, while the median is 2. The most complex function has a cyclomatic complexity value of 2 while the median is 1.
+
+
+
 ### Python DeLinter
 The following files all passed through the [Python PEP8 Linter](https://pep8ci.herokuapp.com/) with no errors:
     <details><summary>settings.py</summary>

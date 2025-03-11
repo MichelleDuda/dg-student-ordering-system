@@ -185,14 +185,18 @@ The databse for the  ***DG Catering Student Meal Plan Protal** is structured as 
 ### Profile Update Page
 - The profile update page contains a form where users are able to manipulate backend user data from the portal.
 
+<img src="static/documentation/features/update_profile_html.jpg">
+
 ### Contact/Feeback Page
 - The contact page conatins a form that will allow the user to send an email to the admin team. At the moment it prints the form data to the terminal and can be wired up to actually interact with an email system later.
+
+<img src="static/documentation/features/contact_html.jpg">
 
 ### User Feedback Messages
 - Feedback messages are present throughout the site to confirm to a user that they were successful in signing in, signing out, placing an order, updating an order, updating their profile, etc. 
 
 ### Future Features
-1. An Admin Portal - structured similarly to the Student Dashboard. Admins could have various options to create (via the existing create new menus form), update, or delete menus.
+1. An Admin Portal Page- structured similarly to the Student Dashboard. Admins could have various options to create (via the existing create new menus form), update, or delete menus.
 2. A feature to create a Parent/Guardian account that would provide access so parents could view their children's order history.
 3. Implement the option for different meal plan options and have the menus udpate to provide users only with options that are inline with their chosen mealplan. 
 
@@ -296,3 +300,7 @@ To Clone this repository:
 ### Code
 
 1. [TabletoMarkdown.com](https://tabletomarkdown.com/convert-spreadsheet-to-markdown/) was used to convert my additional manual testing table from an excel spreadsheet to markdown.
+2. [Custom Template Tags](https://docs.djangoproject.com/en/5.1/howto/custom-template-tags/) was used to assist in creating the custom filter code for get_item.
+3. [Djano Documentation](https://docs.djangoproject.com/en/5.1/intro/) was used extensively to create various componenets of this project. 
+4. [Geeks for Geeks](https://www.geeksforgeeks.org/how-to-use-get-or-create-in-django/) was used to understand the functionality of get or create functions to retrieve and create menus. 
+5. [W3 Schools](https://www.w3schools.com/django/ref_filters_dictsort.php#:~:text=The%20dictsort%20filter%20sorts%20a,dictsortreversed%20filter%20to%20sort%20descending.) was used for DICTSORT.

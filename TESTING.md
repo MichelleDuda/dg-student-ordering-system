@@ -200,16 +200,43 @@ The following file passed through with no errors on customized code. However, pr
 ## User Story Testing
 
 ### Site Owner Goals
-  
-## User Goals
+1. The use of Bootsrap and Custom CSS along with vibrant colorful images of food deliver a visually appealing site. 
+2. The navbar creates an easily navigable site. The use of colorful buttons throughout the pages helps to draw the user's attention to the important navigation links. 
+3. The selling points section of the homepage, along with the simple yet infomrative about page give parents adequate information. Pricing information and sample menus are easily accessible via the button overlaying the hero image on the homepage. 
+
+### User Goals
+As a First-Time user I want to:
+1. I am easily to understand the purpose of this site as the homepage displays a clear image of food with an informative text overlay. The short description of the catering companies services below the hero image further helps me to understand what the company does.
+2. I am able to quickly  view relavant information, including price and sample menu because of the button overlaying the hero image on the homepage. 
+3. I am able to easily register for an account via the Register link in the navbar. 
+
+As a Returning User I want to:
+1. I am able=to quickly log in via the Log In link on the navbar.
+2. I am easily able to place/update my orders, as the site redirects me to my Student Dashboard upon sign in. Here I can place a new order, view & update past orders, update my profile information, and provide feedback to the company.
+3. I am able to easily view my previous orders via the View Past Orders button in my Student Dashboard
+4. I am able to submit a new order easily via the Place Order button on my Student Dashboard. I am able to see that it submitted successfully via a banner that appears at the top of the page when I am redirected to my Orders page after submitting my order. On this page I can also view my order and the details of that order, including the order date. 
 
 ## Browser Compatibility
 This website was tested on the following browsers:
-- Google Chrome Version 129.0.6668.103 (Official Build) (64-bit)
-- Microsoft Edge Version 130.0.2849.46 (Official build) (64-bit)
-- Mozilla Firefox Version 128.0.3 (64-bit)
+- Google Chrome ersion 133.0.6943.142 (Official Build) (64-bit)
+- Microsoft Edge Version Version 133.0.3065.92 (Official build) (64-bit)
+- Mozilla Firefox Version 135.0.1 (64-bit)
 
 ## Bugs
+1. Profile Update Form - Passwords were being deleted if a user submitted the form without entering new password information. Fix: remove password from form fields and handle it separately from the name and email fields. 
+
+2. Profile Update Form - Password doesn't match error message not displaying. Fix: add form.password.errors block to html template. 
+
+3. Unable to view menu or past-orders from student dashboard. Fix: Change code from:
+     return render(request, "past_orders.html", {"orders": orders})
+     
+     and update code: to:
+      return render(request, "order/past_orders.html", {"orders": orders}).
+
+4. Forbidden 403 Error when placing order. Fix: Add CSRF Verification block.
+
+5. Menu.html - only dinner orders were submitting to the database. Fix: add unique name attributes for radio buttons to differentiate.
+
 
 
 ## Known Bugs

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="registration_block center mx-auto">
+    <h2>Create Menu Week</h2>
+    <form method="post">
+    {% csrf_token %}
+
+    <fieldset>
+        <legend>Menu Week</legend>
+        <label for="id_start_date">Start Date:</label>
+        {{ menu_form.start_date }}
+    </fieldset>
+
+    <fieldset>
+        <legend>Meals</legend>
+
+        <div id="meal-formset">
+            {{ meal_formset.management_form }}
+        
+            {% for form in meal_formset %}
+                <div class="meal-form">
+                    {{ form.as_p }}
+                </div>
+            {% endfor %}
+        </div>
+        <button id="add-meal" class = "btn-secondary btn-lg" type="button">Add Another Meal</button>
+    </fieldset>
+
+    <button class="mt-5 btn-primary btn-lg" type="submit">Save Menu</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from datetime import date
 from django.utils import timezone
 from .models import MenuWeek, Meal, Order, OrderItem
+from .forms import MenuWeekForm, MealFormSet
 
 # Views
 
@@ -131,3 +133,72 @@ def delete_order(request, order_id):
         )
 
     return redirect('past_orders')
+
+
+@login_required
+def create_new_menu(request):
+    if not request.user.is_staff:
+        messages.error(request, "You are not authorized to set a menu.")
+        return redirect("home")
+
+    if request.method == "POST":
+        menu_form = MenuWeekForm(request.POST)
+        meal_formset = MealFormSet(request.POST)
+
+        if menu_form.is_valid() and meal_formset.is_valid():
+            menu_week = menu_form.save()
+            meals = meal_formset.save(commit=False)
+
+            meal_tracker = {}
+
+            for meal in meals:
+                if not meal.name.strip():
+                    continue
+
+                meal.menu_week = menu_week
+
+                key = f"{meal.day_of_week}-{meal.category.id}"
+                meal_tracker[key] = meal_tracker.get(key, 0) + 1
+
+                if meal_tracker[key] > 3:
+                    meal_formset.add_error(
+                        None,
+                        f"Too many meals for {meal.category} "
+                        "on {meal.day_of_week}. Max 3."
+                    )
+                    return render(request, 'order/new_menu_form.html', {
+                        'menu_form': menu_form,
+                        'meal_formset': meal_formset,
+                        'days_of_week': [
+                            "Monday", "Tuesday", "Wednesday",
+                            "Thursday", "Friday", "Saturday", "Sunday"
+                        ],
+                        'meal_types': ["Breakfast", "Lunch", "Dinner"]
+                    })
+
+                meal.save()
+            messages.success(request, "Menu updated successfully!")
+            return redirect('home')
+        else:
+            messages.error(
+                request,
+                "There was an error processing your form. Please try again."
+            )
+
+    else:
+        menu_form = MenuWeekForm()
+        meal_formset = MealFormSet()
+
+    return render(
+        request,
+        'order/new_menu_form.html',
+        {
+            'menu_form': menu_form,
+            'meal_formset': meal_formset,
+            'days_of_week': [
+                "Monday", "Tuesday", "Wednesday", "Thursday",
+                "Friday", "Saturday", "Sunday"
+            ],
+            'meal_types': ["Breakfast", "Lunch", "Dinner"]
+        },
+    )

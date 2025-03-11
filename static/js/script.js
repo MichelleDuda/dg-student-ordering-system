@@ -35,3 +35,22 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+//Event Listener and function to dynamically add new forms to the admin menu creation screen
+document.addEventListener("DOMContentLoaded", function () {
+    let formsetContainer = document.getElementById("meal-formset");
+    let addButton = document.getElementById("add-meal");
+    let totalForms = document.getElementById("id_meals-TOTAL_FORMS");
+
+    addButton.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        let formCount = parseInt(totalForms.value);
+        let newForm = formsetContainer.lastElementChild.cloneNode(true);
+
+        newForm.innerHTML = newForm.innerHTML.replace(/-\d+-/g, `-${formCount}-`);
+        
+        formsetContainer.appendChild(newForm);
+        totalForms.value = formCount + 1;
+    });
+});

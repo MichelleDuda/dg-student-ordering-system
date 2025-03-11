@@ -26,6 +26,11 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path(
+        'create_menu_week/',
+        order_views.create_new_menu,
+        name='create_new_menu'
+    ),
+    path(
         'delete_order/<int:order_id>/',
         order_views.delete_order,
         name='delete_order'

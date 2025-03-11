@@ -30,6 +30,7 @@ urlpatterns = [
         order_views.create_new_menu,
         name='create_new_menu'
     ),
+    path('contact/', menu_views.contact_us, name='contact_us'),
     path(
         'delete_order/<int:order_id>/',
         order_views.delete_order,

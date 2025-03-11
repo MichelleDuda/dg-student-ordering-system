@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import CustomUserChangeForm
+from .forms import CustomUserChangeForm, ContactForm
 
 # Views
 
@@ -56,6 +56,39 @@ def update_profile(request):
         form = CustomUserChangeForm(instance=request.user)
 
     return render(request, 'users/update_profile.html', {'form': form})
+
+
+def contact_us(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+
+            print(
+                f"New contact message from {name} ({email}):\n"
+                f"Subject: {subject}\n"
+                f"Message:{message}"
+            )
+
+            messages.success(
+                request,
+                "Your message has been sent successfully!"
+            )
+            return redirect("student_dashboard")
+
+        else:
+            messages.error(
+                request,
+                "There was an error submitting the form. Please try again."
+            )
+
+    else:
+        form = ContactForm()
+
+    return render(request, "menu/contact.html", {"form": form})
 
 
 # Custom Error Pages

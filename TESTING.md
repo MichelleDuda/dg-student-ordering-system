@@ -10,6 +10,40 @@
 
 ## Validator Testing
 
+### HTML Validation
+The following files all passed through the [HTML Validator](https://validator.w3.org/nu/#textarea) with no errors:
+<img src="static/documentation/testing/validator_images/html_validator.jpg">
+- index.html [Full Results](static/documentation/testing/validator_results/html_home.pdf)
+- student_dashboard.html [Full Results](static/documentation/testing/validator_results/html_student_dashboard.pdf)
+- menu.html [Full Results](static/documentation/testing/validator_results/html_menu.pdf)
+- update_profile.html [Full Results](static/documentation/testing/validator_results/html_update_profile.pdf)
+- login.html [Full Results](static/documentation/testing/validator_results/html_login.pdf)
+- logout.html [Full Results](static/documentation/testing/validator_results/html_logout.pdf)
+
+The following html file returned an error:
+<img src="static/documentation/testing/validator_images/html_error_past_orders.jpg">
+- past_orders.html [Full Results](static/documentation/testing/validator_results/html_past_orders.pdf)
+- This error is not actually valid as the action is processed via Javascript to dynamically update the deletion URL. 
+
+### CSS Validation
+The style.css file passed through the [CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) with no errors:
+<img src="static/documentation/testing/validator_images/css_validator2.jpg">
+
+[Full Results](static/documentation/testing/validator_results/css_validator.pdf)
+
+### Python DeLinter
+The following files all passed through the [Python PEP8 Linter](https://pep8ci.herokuapp.com/) with no errors:
+    <details><summary>settings.py</summary>
+    <img src="static/documentation/testing/validator_images/python/py_settings.jpg"> 
+    </details>
+
+
+    - settings.py 
+    <img src="static/documentation/testing/validator_images/python/py_settings.jpg">
+    - urls.py
+    <img src="static/documentation/testing/validator_images/python/py_urls.jpg">
+
+
 
 
 ## Lighthouse Testing

@@ -94,8 +94,9 @@ The  wireframes were created in Balsamiq to outline the basic structure of the s
 
 
 ### Database Design and ERD
-The databse for the  ***DG Catering Student Meal Plan Protal** is structured as follows: 
+The databse for the  ***DG Catering Student Meal Plan Protal** is structured as follows:
 
+<img src="static/documentation/ERD.jpeg">
 
 
 ## Features

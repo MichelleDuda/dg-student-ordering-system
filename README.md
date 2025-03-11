@@ -205,6 +205,7 @@ GitHub
 Bootstrap
 
 - [Balsamiq](https://balsamiq.com/) was used to create the wireframes.
+- Lucid Chart was used to creat the ERD
 - [CI Python Linter](https://pep8ci.herokuapp.com/)
 - [CSS-Valitador](#https://jigsaw.w3.org/css-validator/) was used for CSS validation
 - [W3C](https://validator.w3.org/) was used for HTML validation

@@ -38,16 +38,19 @@ def update_profile(request):
 
             user.save()
             update_session_auth_hash(request, user)
+
             messages.success(
                 request,
                 'Your information has been updated successfully!'
             )
             return redirect('student_dashboard')
         else:
-            messages.warning(
-                request,
-                'There was an error processing your request. Try again'
-            )
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.warning(
+                        request,
+                        f"Error Occurred: {error}. Please try again"
+                    )
 
     else:
         form = CustomUserChangeForm(instance=request.user)

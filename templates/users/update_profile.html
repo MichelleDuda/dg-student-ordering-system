@@ -29,11 +29,21 @@
                 <div class="col-md-12 mb-3">
                     <label for="{{ form.password.id_for_label }}" class="fw-bold">New Password (Optional)</label>
                     {{ form.password|add_class:"form-control form-control-lg" }}
+                    {% if form.password.errors %}
+                        <div class="text-danger">
+                            {{ form.confirm_password.errors }}
+                        </div>
+                    {% endif %}
                 </div>
 
                 <div class="col-md-12 mb-3">
                     <label for="{{ form.confirm_password.id_for_label }}" class="fw-bold">Confirm Password</label>
                     {{ form.confirm_password|add_class:"form-control form-control-lg" }}
+                    {% if form.password.errors %}
+                        <div class="text-danger">
+                            {{ form.password.errors }}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
 

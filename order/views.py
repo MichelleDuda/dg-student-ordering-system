@@ -122,5 +122,12 @@ def delete_order(request, order_id):
 
     if order.user == request.user:
         order.delete()
+        messages.success(request, "Your order has been deleted successfully")
+    else:
+        messages.error(
+            request,
+            "There was an issue deleting your order. Please try again! "
+            "If the issue persists please contact us at 800-555-5555."
+        )
 
     return redirect('past_orders')

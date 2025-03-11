@@ -9,7 +9,7 @@ Link to Live Site: [DG Catering Student Meal Plan Portal](https://dg-student-ord
     * [Site Goals](#site-goals) 
 * [Design](#design)
     * [Colour](#colour)
-    * [Flowchart](#flowchart)
+    * [Wireframes](#wireframes)
 * [Features](#features)
     * [Introduction Screen](#introduction-screen)
     * [Instruction Screen](#instruction-screen)
@@ -64,14 +64,14 @@ As a Returning User I want to:
 The colour scheme for this website is mainly shades of black and white with the color mainly coming from the food photos. The black and white colour scheme conveys a sense of professionalism and cleanliness, which are important qualities for a catering company. Also, by reserving the more vibrant colours on the site for the photos of the food and the navigation buttons, it allows for easy recongition of important buttons for the user experience and allows the food to stand out better and impress potential clients. 
 
 ### Fonts
-Google Fonts was used to import the Roboto and Lato fonts. These were chosen as they complement each other well and have a professional appearance. 
+Google Fonts was used to import the Roboto and Oswald fonts. These were chosen as they complement each other well and have a youthful yet professional appearance. 
 
 ### Background Image
 A background image is used across all pages of the site for consistency. It is meant to simulate a marble countertop. 
 
 ### Wireframes
 
-The  wireframes were created in Balsamiq to outline the basic structure of the site. These wireframes were kept simple, reflecting a clean professional minimalist design approach. 
+The  wireframes were created in Balsamiq to outline the basic structure of the site. These wireframes were kept simple, reflecting a clean professional minimalist design approach.
 
 <details><summary>Home Page</summary>
 <img src="static/documentation/wireframes/index.html.png">
@@ -90,6 +90,9 @@ The  wireframes were created in Balsamiq to outline the basic structure of the s
 </details>
 <details><summary>Past Orders Page</summary>
 <img src="static/documentation/wireframes/past_orders.html.png">
+</details>
+<details><summary>Create New Menu Form</summary>
+<img src="static/documentation/wireframes/create_new_menu.html.png">
 </details>
 
 
@@ -138,6 +141,13 @@ The databse for the  ***DG Catering Student Meal Plan Protal** is structured as 
 
 <img src="static/documentation/features/sample_menu.jpg">
 
+### Admin Menu Entry Page
+- The Menu Entry Page is styled similarly to the Menu pages to maintain a consistent look. 
+- This page contains a form that allows admin users to create a new weekly menu in a more user-friendly format. 
+- It contains Javascript code that dynamically adds new forms to the menu for each new meal to enhance user experience.
+
+<img src="static/documentation/features/admin_entry_html.jpg">
+
 ### Student Dashboard
 - The Student Dashboard is accessible only to authenticated users and provides a quick, easily navigable space for students to place orders, view existing and past orders, update their profile information, and send a message. 
 - The page is broken into a grid pattern and has colorful buttons to catch the user's attention. 
@@ -176,7 +186,10 @@ The databse for the  ***DG Catering Student Meal Plan Protal** is structured as 
 - Feedback messages are present throughout the site to confirm to a user that they were successful in signing in, signing out, placing an order, updating an order, updating their profile, etc. 
 
 ### Future Features
-1. 
+1. An Admin Portal - structured similarly to the Student Dashboard. Admins could have various options to create (via the existing create new menus form), update, or delete menus.
+2. A feature to create a Parent/Guardian account that would provide access so parents could view their children's order history.
+3. Implement the option for different meal plan options and have the menus udpate to provide users only with options that are inline with their chosen mealplan. 
+
 
 ## Agile Methodology
 
@@ -197,20 +210,19 @@ In order to effectively manage the development, I utilized GitHub Projects, and 
 - Python
 
 ### Frameworks, Libraries & Programs Used
-Heruko
-Visual Studio 
-GitHub
+- [Heruko](https://www.heroku.com/) was used to deploy this project.
+- [Visual Studio](https://code.visualstudio.com/) was the local IDE utilized for development. 
+- [GitHub](https://github.com/) was used for version control and code hosting.
 - [Google Fonts](https://fonts.google.com) was used for the fonts: Oswald and Lato.
 - [Font Awesome](https://fontawesome.com/) was used for various icons in the footer and headings of the pages. 
-Bootstrap
-
 - [Balsamiq](https://balsamiq.com/) was used to create the wireframes.
-- Lucid Chart was used to creat the ERD
+- [Lucid Chart](https://www.lucidchart.com/) was used to creat the Entity Relationship Diagram
 - [CI Python Linter](https://pep8ci.herokuapp.com/)
 - [CSS-Valitador](#https://jigsaw.w3.org/css-validator/) was used for CSS validation
 - [W3C](https://validator.w3.org/) was used for HTML validation
 - PostgreSQL
-- Django
+- [Django](https://www.djangoproject.com/) was used as the backend framework.
+- Bootstrap
 - Bootstrap Crispy
 - Bootstrap Widget-Tweaks
 - Django AllAuth

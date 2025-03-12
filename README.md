@@ -3,6 +3,8 @@
 ![DG Catering Student Meal Plan Portal](static/documentation/dgstudentordering.jpg)
 Link to Live Site: [DG Catering Student Meal Plan Portal](https://dg-student-ordering-system-3f18b93375de.herokuapp.com/)
 
+<span style="color: red;">**Note: This website relies on an admin user actively adding new menus. It is designed to allow students to make selections for the following week's meals. The database has been populated with menus through the week starting May 5, 2025. If this site is being tested after May 4, 2025, you will need to log into a superuser account and access the MenuWeek panel. From here you can change the start date of any of the menu weeks to the Monday following the date of testing in order to generate a menu.**</span>
+
 ## Index - Table of Contents
 * [Introduction](#introduction)
 * [User Experience (UX)](#user-experience-ux) 

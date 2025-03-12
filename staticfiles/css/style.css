@@ -29,6 +29,8 @@ h1, h2, h3 {
 
 .navbar {
     position: fixed;
+    font-size: 120%;
+    font-weight: bold;
     top: 0;
     left: 0;
     width: 100%;

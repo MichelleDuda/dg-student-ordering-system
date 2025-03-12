@@ -4,9 +4,9 @@
 {% block content %}
 <div class="registration_block mx-auto">
     <div class="container mt-5 mb-5">
-        <h2 class="text-center mb-4">Contact Us</h2>
+        <h1 class="text-center mb-4"> <i class="fa-solid fa-envelope"></i> Contact Us</h1>
 
-        <form method="post" class="card p-4 shadow">
+        <form method="post" class="card p-4 mx-4 shadow">
             {% csrf_token %}
 
             <div class="mb-3">
@@ -29,7 +29,11 @@
                 {{ form.message|add_class:"form-control" }}
             </div>
 
-            <button type="submit" class="btn btn-primary">Send Message</button>
+            <div class="row">
+                <div class="col-md-4 mx-auto">
+                    <button type="submit" class="btn btn-primary w-100 fs-4">Send Message</button>
+                </div>
+            </div>
         </form>
     </div>
 </div>

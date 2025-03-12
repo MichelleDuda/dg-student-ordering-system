@@ -103,7 +103,7 @@ class Order(models.Model):
 class OrderItem(models.Model):
     """
     Stores individual meal selections within an order.
-    
+
     Each order item links a meal to a specific order. Users
     can also add dietary notes to communicate unique requests.
     """

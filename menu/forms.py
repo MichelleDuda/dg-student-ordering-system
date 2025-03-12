@@ -59,12 +59,12 @@ class ContactForm(forms.Form):
         widget=forms.EmailInput(
             attrs={
                 'class': 'form-control',
-                 'placeholder': 'Your Email'
+                'placeholder': 'Your Email'
             }
         )
     )
     subject = forms.CharField(
-        max_length=200, 
+        max_length=200,
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',

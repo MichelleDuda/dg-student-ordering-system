@@ -8,7 +8,7 @@ admin.site.register(MenuWeek)
 
 
 # Adapted use of admin filters from:
-# https://mastering-django-admin.avilpage.com/en/latest/admin_filter.html 
+# https://mastering-django-admin.avilpage.com/en/latest/admin_filter.html
 class MealAdmin(admin.ModelAdmin):
     list_display = (
         "menu_week",

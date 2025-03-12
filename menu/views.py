@@ -34,7 +34,7 @@ def update_profile(request):
     """
     Handles update of user profile information
     Only accessible to authenticated users.
-    """    
+    """
     if request.method == 'POST':
         form = CustomUserChangeForm(request.POST, instance=request.user)
 

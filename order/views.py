@@ -141,7 +141,7 @@ def delete_order(request, order_id):
 @login_required
 def create_new_menu(request):
     """
-    Renders Create New Menu page and handles both form display & form submission
+    Renders Create New Menu page & handles both form display & form submission
 
     Requires a user is logged into a staff/superuser account to access
     Ensures no more than 3 meals per type per day can be entered

@@ -9,22 +9,34 @@ Link to Live Site: [DG Catering Student Meal Plan Portal](https://dg-student-ord
     * [Site Goals](#site-goals) 
 * [Design](#design)
     * [Colour](#colour)
+    * [Fonts](#fonts)
+    * [Background](#background-image)
     * [Wireframes](#wireframes)
+    * [Database Design](#database-design-and-erd)
 * [Features](#features)
-    * [Introduction Screen](#introduction-screen)
-    * [Instruction Screen](#instruction-screen)
-    * [Difficulty Level Screen](#difficulty-level-screen)
-    * [Game Display](#game-display)
-    * [Display Messages](#display-messages)
+    * [Logo & Navigation bar](#logo-and-navigation-bar)
+    * [Home Page](#home-page)
+    * [About Page](#about-page)
+    * [Sample Menu Page](#sample-menu-page)
+    * [Admin Menu Entry Page](#admin-menu-entry-page)
+    * [Student Dashboard](#student-dashboard)
+    * [Menu/Order Page](#menuorder-page)
+    * [Past Orders Page](#past-orders-page)
+    * [User Authentication Pages](#user-authentication-pages)
+    * [Profile Update Page](#profile-update-page)
+    * [Contact/Feedback Page](#contactfeeback-page)
     * [Future Features](#future-features)
+* [Agile Methodology](#agile-methodology)
 * [Technologies Used](#technologies-used)
     * [Languages](#languages)
     * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
 * [Testing](#testing)
 * [Deployment](#deployment)
+    * [PostgreSQL Setup](#postgresql-setup)
     * [How This Site Was Deployed](#how-this-site-was-deployed)
     * [How to Clone The Repository](#how-to-clone-the-repository)
 * [Credits](#credits)
+    * [Photos](#photos)
     * [Code](#code)
 
 
@@ -45,7 +57,7 @@ As the site Owner, I want to create a website that:
 2. is easily navigable.
 3. provides adequate information to entice parents into signing up for services for their children. 
 
-### User Goals
+#### User Goals
 As a First-Time user I want to:
 1. easily understand the purpose of the site.
 2. quickly be able to view relavant information, including price and sample menu.
@@ -97,7 +109,18 @@ The  wireframes were created in Balsamiq to outline the basic structure of the s
 
 
 ### Database Design and ERD
-The databse for the  ***DG Catering Student Meal Plan Protal** is structured as follows:
+The databse for the  ***DG Catering Student Meal Plan Protal** is designed to efficiently manage meal selections, user preferences, and ordering history while ensuring flexibility for weekly menu updates.
+
+The core entities in the database include:
+
+- Users: Represents students managing meal selections. Users are linked to their respective meal orders.
+- MenuWeek: Defines the available meal plan for a specific week, ensuring that meal options are updated regularly.
+- MealType: Categorizes meals into breakfast, lunch, or dinner, providing structure to daily meal plans.
+- Meals: Stores individual meal options for each day of the week, including dietary specifications like plant-based options. Each meal is associated with a MenuWeek and a MealType.
+- Orders: Represents a student’s meal selections for a given week. Each order is unique to a user and a specific MenuWeek.
+- OrderItems: Links meals to an order, allowing students to customize selections and add dietary notes.
+
+This relational structure ensures data integrity and allows for efficient retrieval of meal plans, past orders, and dietary customizations.
 
 <img src="static/documentation/ERD.jpeg">
 
@@ -162,7 +185,7 @@ The databse for the  ***DG Catering Student Meal Plan Protal** is structured as 
 
 <img src="static/documentation/features/menu.jpg">
 
-## Past Orders Page
+### Past Orders Page
 - The Past Orders page contains expandle boxes that show what weeks you have placed orders for in the past. 
 - The page contains a button that allows you to toggle to expand the order details and view the actual meals that were ordered.
 - There is an update and delete button also available to the user, that will only display if the menu start date is after today - to avoid users deleting or updating menus for weeks that are already in progress or in the past. 
@@ -304,3 +327,4 @@ To Clone this repository:
 3. [Djano Documentation](https://docs.djangoproject.com/en/5.1/intro/) was used extensively to create various componenets of this project. 
 4. [Geeks for Geeks](https://www.geeksforgeeks.org/how-to-use-get-or-create-in-django/) was used to understand the functionality of get or create functions to retrieve and create menus. 
 5. [W3 Schools](https://www.w3schools.com/django/ref_filters_dictsort.php#:~:text=The%20dictsort%20filter%20sorts%20a,dictsortreversed%20filter%20to%20sort%20descending.) was used for DICTSORT.
+6. [Masting-Django-Admin](https://mastering-django-admin.avilpage.com/en/latest/admin_filter.html) was used to help create the Django Admin Filters and Display Lists

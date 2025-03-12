@@ -1,6 +1,10 @@
 # DG Catering Student Meal Plan Portal Testing
 
 * [Validator Testing](#validator-testing)
+    * [HTML Validation](#html-validation)
+    * [CSS Validation](#css-validation)
+    * [Javascript Validation](#javascript-validation)
+    * [Python Pep8 Linter](#python-pep8-linter)
 * [Lighthouse Testing](#lighthouse-testing)
 * [Additional Manual Testing](#additional-manual-testing)
 * [User Story Testing](#user-story-testing)
@@ -39,7 +43,7 @@ The style.css file passed through the [CSS Validator](https://jigsaw.w3.org/css-
   - Code from script.js passed through JSHint site with no errors. The following Metrics were logged: There are 9 functions in this file. Function with the largest signature take 1 arguments, while the median is 0. Largest function has 7 statements in it, while the median is 2. The most complex function has a cyclomatic complexity value of 2 while the median is 1.
 
 
-### Python DeLinter
+### Python Pep8 Linter
 The following files all passed through the [Python PEP8 Linter](https://pep8ci.herokuapp.com/) with no errors:
     <details><summary>urls.py</summary>
     <img src="static/documentation/testing/validator_images/python/py_urls.jpg"> 
@@ -117,6 +121,10 @@ The following file passed through with no errors on customized code. However, pr
 - Lighthouse result for update_profile.html
 
     ![Lighthouse results index](static/documentation/testing/lighthouse/lighthouse_update_profile_html.jpg)
+
+- Lighthouse result for new_menu_form.html
+
+    ![Lighthouse results index](static/documentation/testing/lighthouse/lighthouse_create_menu_week_html.jpg)
 
 ## Additional Manual Testing
 
@@ -215,6 +223,18 @@ As a Returning User I want to:
 2. I am easily able to place/update my orders, as the site redirects me to my Student Dashboard upon sign in. Here I can place a new order, view & update past orders, update my profile information, and provide feedback to the company.
 3. I am able to easily view my previous orders via the View Past Orders button in my Student Dashboard
 4. I am able to submit a new order easily via the Place Order button on my Student Dashboard. I am able to see that it submitted successfully via a banner that appears at the top of the page when I am redirected to my Orders page after submitting my order. On this page I can also view my order and the details of that order, including the order date. 
+
+### Kanban Board - USER STORY Testing
+1. UX for Potential Users - A company logo and navigation bar as visible when the user first logs in, creating a easily navigable page. The user is easily able to tell the purpose of the site via the hero image and text overlay (which includes a breif description of the service). The text overlay also contains a button that links to the about page for ease of access to sample menus and pricing. 
+2. Account Registration - A user is able to easily register for the site via the Register link in the navigation bar. The user is logged in after Registration and redirected to the Student Dashboard where they can easily place orders, view orders, update/delete orders, as well as perform other functions.
+3. View Past Orders - If a user is authenticated they have access to the Student Dashboard - which contains a link to the Past Orders Page. This page allows users to view orders they have placed, expand order details, and udpate/delete the order if it isn't already in progress or closed. 
+4. ADMIN: Update Menu - When logged into a staff or superuser account an additional navigation link appears to create menus. This gives admin users a user friendly way to enter menus without having to utilize the Django admin panel. The Django admin panel is also udpated with filters, searches, and categorized display lists to allow for easy interaction for admins. 
+5. Student Dashboard - Users are redirected to a Student Dashboard after log in for quick easy access to important pages. The Student Dashboard is only accessible to authenticated users and the link only appears in the navigation bar if a user is authenticated. This dashboard contains links to place an order, view past orders (where users can then update or delete open orders), update their profile information, and provide feedback to the company regarding their meals. 
+6. Place an Order - When a user is authenticated they can easily access the following week's menu to place an order, via the Place Order button in the Student Dashboard.
+7. Update Menu Selections - Authenticated users have the ability to update their menu choices after placing an order for the following menu week. The menu view is set to pre-populate a user's selections in the menu page, if they have already made selections for a user friendly update experience.
+8. View Sample Menu - The sample menu is included on the About page which is accessible to unathenticated site visitors.
+9. Delete Order - Authenticated users are able to delete open orders, via the Past Orders page of their Student Dashboard. The delete button is programmed to only appear for orders that are considered open (when the start date of the menu week in the future) in order to prevent student's from deleting historical data for meals that have already been processed. 
+10. Update User Account Information - Authenticated users are able to update their first name, last name, email address, & password via the Update Profile button in the Student Dashboard. The form makes sure to reload the users session after a password update to ensure they remain authenticated until they sign out. 
 
 ## Browser Compatibility
 This website was tested on the following browsers:

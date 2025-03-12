@@ -55,6 +55,11 @@ main {
     text-align: center;
 }
 
+ul .messages {
+    list-style-type: none;
+    padding-left: 0;
+}
+
 /* Index.Html Styles */
 #hero {
     background: url('/static/images/hero.webp') no-repeat center center / cover;

@@ -48,6 +48,8 @@ document.addEventListener("DOMContentLoaded", function () {
         let formCount = parseInt(totalForms.value);
         let newForm = formsetContainer.lastElementChild.cloneNode(true);
 
+        //update form index with a regular expression that matches a sequence of - followed by digits and another -
+        //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions 
         newForm.innerHTML = newForm.innerHTML.replace(/-\d+-/g, `-${formCount}-`);
         
         formsetContainer.appendChild(newForm);

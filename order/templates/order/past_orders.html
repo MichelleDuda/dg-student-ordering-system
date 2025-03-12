@@ -4,6 +4,7 @@
     <h2 class="text-center mb-4">Your Past Orders</h2>
     {% if orders %}
         <div class="row">
+            <!-- Displays List of Users Past Orders -->
             {% for order in orders %}
                 <div class="col-md-8 offset-md-2 mb-3">
                     <div class="card shadow-sm">
@@ -29,6 +30,7 @@
                                     </ul>
                                 </div>
                             </div>
+                            <!-- Displays Update/Delete Buttons if condition evalutates to true in view -->
                             {% if order.show_buttons %}
                                 <div>
                                     <a href="{% url 'menu' %}" class="btn btn-warning btn-sm me-2 mt-3">Update</a>

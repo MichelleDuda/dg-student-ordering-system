@@ -19,6 +19,7 @@
                             </div>
                             <div class="card-body">
                                 
+                                <!-- dictsort code adapted from W3Schools-->
                                 {% with meals|dictsort:"category.meal_type" as sorted_meals %}
                                     {% if sorted_meals %}
                                         

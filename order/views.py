@@ -13,7 +13,7 @@ from .forms import MenuWeekForm, MealFormSet
 
 @login_required
 def menu_view(request):
-    """Handles retrieving the menu for new oders and updates."""
+    """Handles retrieving the menu for new orders and updates."""
     today = date.today()
     menu_week = (
         MenuWeek.objects.filter(start_date__gt=today)
@@ -39,7 +39,7 @@ def menu_view(request):
         menu_week=menu_week
     ).first()
 
-    # Store user's order in set
+    # Store user's order
     selected_meal_ids = set()
     dietary_notes = {}
 
@@ -71,12 +71,14 @@ def place_order(request):
             return redirect("menu")
 
         # Check if an order exists for this user for the week.
+        # get_or_create code adapted from:
+        # https://www.geeksforgeeks.org/how-to-use-get-or-create-in-django/
         order, created = Order.objects.get_or_create(
             user=request.user,
             menu_week=menu_week
         )
 
-        # Clear preveious selections before updating
+        # Clear previous selections before updating
         order.items.all().delete()
 
         for key, meal_id in request.POST.items():
@@ -102,7 +104,7 @@ def place_order(request):
 
         return redirect("past_orders")
 
-    return redirect("menu")  # Redirect to menu if accessed incorrectly
+    return redirect("menu")
 
 
 @login_required
@@ -120,6 +122,7 @@ def past_orders(request):
 
 @login_required
 def delete_order(request, order_id):
+    "Handles deletion of an order"
     order = get_object_or_404(Order, id=order_id)
 
     if order.user == request.user:
@@ -137,6 +140,12 @@ def delete_order(request, order_id):
 
 @login_required
 def create_new_menu(request):
+    """
+    Renders Create New Menu page and handles both form display & form submission
+
+    Requires a user is logged into a staff/superuser account to access
+    Ensures no more than 3 meals per type per day can be entered
+    """
     if not request.user.is_staff:
         messages.error(request, "You are not authorized to set a menu.")
         return redirect("home")

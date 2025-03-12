@@ -255,7 +255,7 @@ In order to effectively manage the development, I utilized GitHub Projects, and 
 - PostgreSQL
 - [Django](https://www.djangoproject.com/) was used as the backend framework.
 - Bootstrap
-- Bootstrap Widget-Tweaks
+- Django Widget-Tweaks
 - Django AllAuth
 - OAuthLib
 - Gunicorn
@@ -328,3 +328,5 @@ To Clone this repository:
 4. [Geeks for Geeks](https://www.geeksforgeeks.org/how-to-use-get-or-create-in-django/) was used to understand the functionality of get or create functions to retrieve and create menus. 
 5. [W3 Schools](https://www.w3schools.com/django/ref_filters_dictsort.php#:~:text=The%20dictsort%20filter%20sorts%20a,dictsortreversed%20filter%20to%20sort%20descending.) was used for DICTSORT.
 6. [Masting-Django-Admin](https://mastering-django-admin.avilpage.com/en/latest/admin_filter.html) was used to help create the Django Admin Filters and Display Lists
+7. [SimpleisBetterThanComplex](https://simpleisbetterthancomplex.com/2015/12/04/package-of-the-week-django-widget-tweaks.html) and [PYPI.org](https://pypi.org/project/django-widget-tweaks/) used to aid in the use of widget tweaks for forms.
+8. [Mozilla Developer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions), [Stackoverflow](https://stackoverflow.com/questions/5297876/clone-form-and-increment-id?utm_source=chatgpt.com) to set up dynamically adding new forms to a formset via Javascript. 

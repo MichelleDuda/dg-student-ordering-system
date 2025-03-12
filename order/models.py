@@ -5,7 +5,12 @@ from django.contrib.auth.models import User
 
 
 class MenuWeek(models.Model):
-    """Defines each weekly menu cycle by start date"""
+    """
+    Defines each weekly menu cycle by start date.
+
+    Each instance represents a unique week, identified by its
+    start_date. This helps organize meals into weekly menus.
+    """
     start_date = models.DateField(
         unique=True,
         help_text="Start date of this week's menu"
@@ -16,6 +21,11 @@ class MenuWeek(models.Model):
 
 
 class MealType(models.Model):
+    """
+    Represents different meal types (Breakfast, Lunch, Dinner).
+
+    This model is used to categorize meals based on their type.
+    """
     meal_type = models.CharField(
         max_length=10,
         choices=[
@@ -29,6 +39,12 @@ class MealType(models.Model):
 
 
 class Meal(models.Model):
+    """
+    Stores meal details for a specific day in a menu week.
+
+    Each meal belongs to a specific MenuWeek, falls on a
+    particular day of the week, and is classified under a MealType.
+    """
     menu_week = models.ForeignKey(
         MenuWeek,
         on_delete=models.CASCADE,
@@ -59,6 +75,12 @@ class Meal(models.Model):
 
 
 class Order(models.Model):
+    """
+    Represents a user's order for a specific menu week.
+
+    Each order is linked to a user and a MenuWeek, ensuring that
+    a user can only place one order per week.
+    """
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -79,6 +101,12 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
+    """
+    Stores individual meal selections within an order.
+    
+    Each order item links a meal to a specific order. Users
+    can also add dietary notes to communicate unique requests.
+    """
     order = models.ForeignKey(
         Order,
         on_delete=models.CASCADE,

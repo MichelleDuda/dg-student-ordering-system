@@ -8,14 +8,19 @@ from .forms import CustomUserChangeForm, ContactForm
 # Views
 
 
-# Homepage View
+# Home View
 def index(request):
+    """Render and return the Home page. """
     return render(request, 'menu/index.html')
 
 
 # Student Dashboard View
 @login_required
 def dashboard(request):
+    """
+    Render and return the Student Dashboard page.
+    Only accessible to authenticated users.
+    """
     return render(
         request,
         'menu/student_dashboard.html',
@@ -26,6 +31,10 @@ def dashboard(request):
 # Uesr Information Update View
 @login_required
 def update_profile(request):
+    """
+    Handles update of user profile information
+    Only accessible to authenticated users.
+    """    
     if request.method == 'POST':
         form = CustomUserChangeForm(request.POST, instance=request.user)
 
@@ -58,7 +67,9 @@ def update_profile(request):
     return render(request, 'users/update_profile.html', {'form': form})
 
 
+# Contact View
 def contact_us(request):
+    """ Handles contact form submission """
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():

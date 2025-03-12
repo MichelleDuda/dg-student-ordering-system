@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 
 
 class CustomUserChangeForm(UserChangeForm):
+    """ This form is used to update user profile information. """
+    """ Use of widgets from Django documentation """
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'form-control'}),
         required=False,
@@ -43,6 +45,7 @@ class CustomUserChangeForm(UserChangeForm):
 
 
 class ContactForm(forms.Form):
+    """ This form is used to collect information for users to send feeback. """
     name = forms.CharField(
         max_length=100,
         widget=forms.TextInput(

@@ -124,7 +124,7 @@ The following file passed through with no errors on customized code. However, pr
 
 - Lighthouse result for new_menu_form.html
 
-    ![Lighthouse results index](static/documentation/testing/lighthouse/lighthouse_create_menu_week_html.jpg)
+    ![Lighthouse results index](static/documentation/testing/lighthouse/lighthouse_create_new_menu_html.jpg)
 
 ## Additional Manual Testing
 
